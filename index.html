@@ -1,283 +1,126 @@
-body {
-  margin: 0;
-  font-family: 'Exo 2', sans-serif;
-  overflow:hidden;
-}
-#splash {
-  position: fixed;
-  z-index: 1000;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #30ddff;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #30ddff, #01baff);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #30ddff, #01baff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  text-align: center;
-  transition: 0.4s;
-  -webkit-transition: 0.4s;
-}
-#splashCard, #splashDesc, #splashLogo {
-  transition: 0.4s;
-  -webkit-transition: 0.4s;
-}
-.onekind {
-  margin-top: 40px;
-}
-.logoIcon {
-  background: #fff;
-  width: 70px;
-  height: 80px;
-  border-radius: 10px;
-  border: none;
-  font-size: 30px;
-  color: #ef5755;
-  box-shadow: 0px 0px 2px #888888;
-}
-.logo {
-  font-family: 'Exo 2', sans-serif;
-  color: #fff;
-  font-size:40px;
-  text-shadow: 0px 0px 2px #888888;
-}
-.subtext {
-  font-family: 'Exo 2', sans-serif;
-  color: #fff;
-  text-shadow: 0px 0px 2px #888888;
-}
-svg path,
-svg rect{
-  fill: #fff;
-}
-.octicon-blue {
-  fill: #fff;
-}
-.mainbtn {
-  background: #fff;
-  border-radius: 6px;
-  border: none;
-  color: #32cdfe;
-  border: 1px solid #32cdfe;
-  padding: 7px;
-  font-size: 20px;
-  max-width: 380px;
-  width: 90%;
-  outline: none;
-  margin-top: 10px;
-}
-#sectorOne {
-  text-align: center;
-}
-h1 {
-  font-size: 50px;
-  display: inline-block;
-}
-#vocabStatus {
-  background: #30ddff;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #30ddff, #01baff);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #30ddff, #01baff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-#gramStatus {
-  background: #8BC34A;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #8BC34A, #4CAF50);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #8BC34A, #4CAF50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-#readStatus {
-  background: #FF9800;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #FF9800, #FF5722);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #FF9800, #FF5722); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-#userSelect {
-  margin-top: 250px;
-}
-#bottomMenu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #fff;
-  border-top: 1px solid #c6c6c6;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-.tabBtn {
-  color: #fff;
-  border: none;
-  outline: none;
-  padding: 8px;
-  width: 45%;
-  font-size: 17px;
-}
-.tabBtn:disabled {
-  color: #fff;
-  border: none;
-  outline: none;
-  padding: 8px;
-  width: 45%;
-  font-size: 17px;
-}
-.bluebtn {
-  background: #30ddff;  /* fallback for old browsers */
-}
-.bluebtn:disabled {
-  background: #30ddff;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #30ddff, #01baff);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #30ddff, #01baff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-.orangebtn {
-  background: #FF9800;
-}
-.orangebtn:disabled {
-  background: #FF9800;
-  background: -webkit-linear-gradient(to bottom, #FF9800, #FF5722);
-  background: linear-gradient(to bottom, #FF9800, #FF5722);
-}
-.greenbtn {
-  background: #8BC34A;
-}
-.greenbtn:disabled {
-  background: #8BC34A;
-  background: -webkit-linear-gradient(to bottom, #8BC34A, #4CAF50);
-  background: linear-gradient(to bottom, #8BC34A, #4CAF50);
-}
-.statsText {
-  font-size: 20px;
-}
+<!doctype html>
+<html>
+  <head>
+    <title>FlashUp</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <script src="js/ui.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.4.0/firebase.js'></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDOSZAiZmgwal-NltqsbPw4QS9SS831N20",
+      authDomain: "peer2peer-60587.firebaseapp.com",
+      databaseURL: "https://peer2peer-60587.firebaseio.com",
+      projectId: "peer2peer-60587",
+      storageBucket: "peer2peer-60587.appspot.com",
+      messagingSenderId: "30761206221"
+    };
+    firebase.initializeApp(config);
+  </script>
+  </head>
+  <body>
+    <div id="splash">
+      <div class="onekind">
+        <button id="splashCard" class="logoIcon">あ</button><br>
+        <h1 id="splashLogo" class="logo">FlashUp</h1>
+        <h2 id="splashDesc" class="subtext">Simple Japanese Speed Learning</h2>
+        <div class="loader loader--style3" title="2">
+          <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+            <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+              <animateTransform attributeType="xml"
+              attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div id="mainport">
+      <div id="sectorOne">
 
-.whitetransbtn {
-  background: #fff;
-  border-radius: 6px;
-  border: none;
-  color: #111111;
-  border: none;
-  padding: 7px;
-  font-size: 20px;
-  outline: none;
-  margin-top: 10px;
-  width: 80%;
-}
-.statsBox {
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  min-height: 230px;
-}
-.leftbtn {
-  position: absolute;
-  right: 15px;
-  top: 70px;
-  border-radius: 10px;
-  height: 40px;
-  width: 40px;
-  background: #fff;
-  border: 0;
-  z-index: 997;
-  outline: none;
-}
-.rightbtn {
-  position: absolute;
-  left: 15px;
-  top: 70px;
-  border-radius: 10px;
-  height: 40px;
-  width: 40px;
-  background: #fff;
-  border: 0;
-  z-index: 997;
-  outline: none;
-}
-.progressWrapper {
-  background: #efeff0;
-  border-radius: 10px;
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-}
-.untilProgress {
-  background: #f8b63c;
-  border-radius: 10px;
-  height: 20px;
-  width: 0%;
-  margin-right: auto;
-  overflow: visible;
-}
-#userStatus {
-  overflow: hidden;
-}
-#loginport {
-  position: fixed;
-  z-index: 999;
-  width: 90%;
-  background: #fff;
-  left: 5%;
-  top: 5vh;
-  border-radius: 20px;
-  text-align: center;
-}
-#shadow {
-  background: rgba( 0, 0, 0, 0.5 );
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 998;
-}
-.headerLog {
-  font-size: 25px;
+        <div id="userStatus">
+          <div class="statsBox" id="vocabStatus">
+            <h1 class="sectorHeader">Vocabulary</h1><br>
+            Level 1
+            <div class="progressWrapper">
+              <div class="untilProgress"></div>
+            </div>
+            <div style="margin-bottom: 10px;">
+              <span class="statsText"><span id="cardsLeft">0</span> cards left until <span id="nextLevel">Next Level</span></span>
+              <br><br>
+            </div>
+          </div>
 
-}
-.eightwrap {
-  border-radius: 20px;
-  background: #30ddff;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #30ddff, #01baff);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #30ddff, #01baff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  margin-right: auto;
-  margin-left: auto;
-  color: #fff;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  text-align: center;
-  min-height: 30vh;
-}
-.circleBtn {
-  border-radius: 50%;
-  border: 0;
-  width: 85px;
-  height: 85px;
-  text-align: center;
-  margin-bottom: 30px;
-  outline: none;
-  box-shadow: 0px 2px 3px #888888;
-}
-#learnport {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  background: #fff;
-  width: 100%;
-  height: 100vh;
-  z-index: 7000;
-}
-#bottomControllerLearn {
-  position: fixed;
-  z-index: 7001;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+          <div class="statsBox" id="gramStatus">
+            <h1 class="sectorHeader">Grammer</h1><br>
+            Level 1
+            <div class="progressWrapper">
+              <div class="untilProgress"></div>
+            </div>
+            <div style="margin-bottom: 10px;">
+              <span class="statsText"><span id="cardsLeft">0</span> cards left until <span id="nextLevel">Next Level</span></span>
+              <br><br>
+            </div>
+          </div>
 
-}
+          <div class="statsBox" id="readStatus">
+            <h1 class="sectorHeader">Reading</h1><br>
+            <div style="margin-bottom: 10px;">
+              <span class="statsText">Comming Soon!</span>
+            </div>
+          </div>
+
+          <button id="lefty" class="leftbtn" onclick="right()" style="display: none;">
+            <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ3Ny4xNzUgNDc3LjE3NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDc3LjE3NSA0NzcuMTc1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnPgoJPHBhdGggZD0iTTM2MC43MzEsMjI5LjA3NWwtMjI1LjEtMjI1LjFjLTUuMy01LjMtMTMuOC01LjMtMTkuMSwwcy01LjMsMTMuOCwwLDE5LjFsMjE1LjUsMjE1LjVsLTIxNS41LDIxNS41ICAgYy01LjMsNS4zLTUuMywxMy44LDAsMTkuMWMyLjYsMi42LDYuMSw0LDkuNSw0YzMuNCwwLDYuOS0xLjMsOS41LTRsMjI1LjEtMjI1LjFDMzY1LjkzMSwyNDIuODc1LDM2NS45MzEsMjM0LjI3NSwzNjAuNzMxLDIyOS4wNzV6ICAgIiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+          </button>
+          <button id="righty" class="rightbtn" onclick="left()" style="display: none;">
+            <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ3Ny4xNzUgNDc3LjE3NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDc3LjE3NSA0NzcuMTc1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnPgoJPHBhdGggZD0iTTE0NS4xODgsMjM4LjU3NWwyMTUuNS0yMTUuNWM1LjMtNS4zLDUuMy0xMy44LDAtMTkuMXMtMTMuOC01LjMtMTkuMSwwbC0yMjUuMSwyMjUuMWMtNS4zLDUuMy01LjMsMTMuOCwwLDE5LjFsMjI1LjEsMjI1ICAgYzIuNiwyLjYsNi4xLDQsOS41LDRzNi45LTEuMyw5LjUtNGM1LjMtNS4zLDUuMy0xMy44LDAtMTkuMUwxNDUuMTg4LDIzOC41NzV6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+          </button>
+        </div>
+
+        <div id="userSelect">
+          <button id="strtbtn" class="mainbtn">Start Learning</button><br>
+          <button id="testbtn" class="mainbtn">Take Test</button>
+        </div>
+      </div>
+      <div id="bottomMenu">
+        <button id="profileBtn" class="tabBtn bluebtn">
+          <svg aria-label="stars" class="octicon-blue" height="16" role="img" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg><br>
+          Profile
+        </button>
+        <button id="learnBtn" class="tabBtn bluebtn" disabled>
+          <svg aria-hidden="true" class="ocitcon-blue" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"></path></svg><br>
+          Learn
+        </button>
+      </div>
+    </div>
+    <div id="tutorial" style="display: none; opacity: 0;">
+
+    </div>
+    <script>
+      window.onload = function() {
+        var wdt = window.innerWidth;
+        userstats.style.width = wdt + "px";
+        gramstats.style.left = wdt + "px";
+        readstats.style.left = -1 * wdt + "px";
+      }
+      window.onresize = function() {
+        var wdt = window.innerWidth;
+        userstats.style.width = wdt + "px";
+      }
+    </script>
+    <script src="js/ui.js"></script>
+    <div id="loginport" style="display: none;">
+      <div class="eightwrap">
+        <br><br>
+        <span class="headerLog">Welcome to FlashyUp!</span><br>
+        <span>Learn Japanese Online</span><br><br>
+        <button class="whitetransbtn">Take the Tour</button><br>
+        <button class="whitetransbtn">My Profile</button>
+      </div>
+      <br><span class="credits">FlashUp JP</span><br><br>
+    </div>
+    <div id="shadow" style="display: none"></div>
+  </body>
+</html>
