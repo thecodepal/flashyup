@@ -14,6 +14,8 @@ var strtbtn = document.getElementById("strtbtn");
 var learnbtn = document.getElementById("learnBtn");
 var profilebtn = document.getElementById("profileBtn");
 var testbtn = document.getElementById("testbtn");
+var leary = document.getElementById("learnbtn");
+var dared = document.getElementById("daredXatlearnport");
 
 setTimeout( function () {
   splashCard.style.opacity = "0";
@@ -134,4 +136,19 @@ function changeTabColor() {
     learnbtn.classList.remove('orangebtn');
     learnbtn.classList.remove('greenbtn');
   }
+}
+
+strtbtn.onclick = function () {
+  document.getElementById("learnport").style.display = "block";
+  setTimeout( function () {
+    document.getElementById("learnport").style.opacity = "1";
+    document.getElementById("learnport").style.height = "100vh";
+  }, 200 )
+}
+function closeLearnport() {
+  document.getElementById("learnport").style.opacity = "0";
+  document.getElementById("learnport").style.height = "0";
+  setTimeout( function () {
+    document.getElementById("learnport").style.display = "none";
+  }, 200 )
 }
